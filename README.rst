@@ -230,3 +230,31 @@ submitted for review using ``propose.sh``.
 .. code-block:: console
 
    $ ./tools/python3-first/propose.sh ../Py3FirstGoalWork Documentation
+
+python3-train
+=============
+
+Setup
+-----
+
+To set up a workspace to use the python3-train tools::
+
+  $ mkdir python3-train
+  $ cd python3-train
+  $ git clone https://git.openstack.org/openstack-infra/project-config
+  $ git clone https://git.openstack.org/openstack/goal-tools
+  $ mkdir Output
+
+Preparing Patches
+-----------------
+
+To prepare the patches for one team, use ``do_team.sh``::
+
+  $ cd goal-tools
+  $ ./tools/python3-train/do_team.sh ../Output Documentation
+
+The script will create a subdirectory in the output location using the
+team name, clone all of the repositories owned by the team, then
+process each one to create a patch for each branch that needs to have
+zuul job settings updated, tox.ini environments updated, and setup.cfg
+classifiers updated.
